@@ -1,0 +1,46 @@
+/* Start Default Styles */
+:root{
+    --bg-color-dark: rgb(28 ,28 ,40);
+    --bg-color-course-dark: rgb(40,41,61);
+    --white-color: #fff;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    line-height: 1.6;
+    font-size: 1.6rem;
+    font-family: IRANSans;
+    direction: rtl;
+}
+
+*,
+*::after,
+*::before {
+    outline: none;
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-color);
+    transition: all 400ms ease;
+}
+
+
+i {
+    user-select: none;
+}
+
+.container {
+    width: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* Finish Default Styles */
