@@ -1,0 +1,113 @@
+var $ = jQuery;
+
+if (localStorage.theme === "dark") {
+    document.documentElement.classList.add("dark")
+} else {
+    document.documentElement.classList.remove("dark")
+}
+
+const loaderSVG = {
+    "default": `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;height: 100%;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+  <g transform="rotate(0 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(30 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(60 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(90 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(120 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(150 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(180 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(210 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(240 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(270 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(300 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+    </rect>
+  </g><g transform="rotate(330 50 50)">
+    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+    </rect>
+  </g>
+</svg>`,
+
+    "bounce": `<span class="step1-loading spinner text-white/80">
+<span class="bounce1"></span>
+<span class="bounce2"></span>
+<span class="bounce3"></span>`
+};
+
+jQuery.fn.showLoader = function(theme = "default") {
+    this.data("loader-text", this.html());
+    this.prop("disabled", true);
+    this.html(loaderSVG[theme]);
+    return this;
+};
+
+jQuery.fn.hideLoader = function(new_html = "", stay_disabled = false) {
+    this.html(new_html ? new_html : this.data("loader-text"));
+    if (!stay_disabled) {
+        this.prop("disabled", false);
+    }
+    this.data("loader-text", "");
+    return this;
+};
+
+
+function showNotification(title = "", text = "", type = "success", duration = 3000){
+    if (window.inrunnotif) {
+        clearInterval(window.inrunnotif["line"]);
+        clearTimeout(window.inrunnotif["remc"]);
+        clearTimeout(window.inrunnotif["fixc"]);
+    }
+    let notice = $(".notification");
+    let noticeType = type === "danger" ? "notification--danger" : "notification--success";
+    $(".notification__title").text(title)
+    $(".notification__text").text(text);
+    notice.removeClass("notification--danger");
+    notice.removeClass("notification--success");
+    notice.addClass(`notification--show ${noticeType}`);
+    var timeincomeon = duration;
+    window.inrunnotif = {};
+    window.inrunnotif["line"] = setInterval(() => {
+        timeincomeon -= 20;
+        $(".notification__line").css("width", "calc("+(timeincomeon*100)/duration+"% - 8px)");
+    }, 20)
+    window.inrunnotif["remc"] = setTimeout(() => {
+        clearInterval(window.inrunnotif["line"]);
+        notice.removeClass("notification--show");
+    }, duration);
+    window.inrunnotif["fixc"] = setTimeout(() => {
+        notice.removeClass(noticeType);
+        $(".notification__line").css("width", "calc(100% - 8px)");
+        window.inrunnotif = undefined;
+    },duration + 300)
+}

@@ -1,0 +1,156 @@
+// [+] Variables
+const overlay = $('.overlay');
+const navigation = $('.navigation');
+const navigationCloseBtn = $('.navigation__close-btn');
+const navigationOpenBtn = $('.navigation__open-btn');
+const userProfile = $('.user-profile');
+const userProfileDropdown = $('#user-profile-dropdown');
+const switchTheme = $(".switch-theme");
+const appOverlay = $(".app-overlay");
+const searchboxDropdown = $("#searchbox-dropdown");
+const mobileMenuLink = $('.mobile-menu__link');
+let appOverlayData = {
+    name: "",
+    status: false
+};
+
+// [+] Functions
+function openAppOverlay(name = "") {
+    appOverlay.addClass("show").removeClass("hide");
+    appOverlayData.status = true;
+    appOverlayData.name = name;
+}
+function closeAppOverlay() {
+    appOverlay.addClass("hide").removeClass("show");
+    appOverlayData.status = false;
+    appOverlayData.name = "";
+}
+function openUserProfile() {
+    userProfileDropdown.addClass('show').removeClass('hide');
+    $("#user-profile").addClass("z-50");
+}
+function closeUserProfile() {
+    userProfileDropdown.addClass('hide').removeClass('show');
+    setTimeout(() => {
+        $("#user-profile").removeClass("z-50")
+    }, 100);
+}
+function openHeaderSearch() {
+    searchboxDropdown.addClass("show").removeClass("hide");
+    $("#searchbox").addClass("z-50");
+}
+function closeHeaderSearch() {
+    searchboxDropdown.addClass("hide").removeClass("show");
+    setTimeout(() => {
+        $("#searchbox").removeClass("z-50");
+    }, 100);
+}
+function closeAlert(el){
+    el.parentElement.remove();
+}
+function openSortBottomSheet(){
+    $(".bottom-sheet").addClass("bottom-sheet--open");
+    $("html").addClass("overflow-hidden")
+}
+function closeSortBottomSheet(){
+    $(".bottom-sheet").removeClass("bottom-sheet--open");
+    $("html").removeClass("overflow-hidden")
+}
+// [+] Listeners
+
+// App Navigation
+navigationOpenBtn.click(() => {
+    navigation.removeClass('-right-64');
+    navigation.addClass('right-0');
+    overlay.removeClass('invisible opacity-0');
+})
+navigationCloseBtn.click(() => {
+    navigation.addClass('-right-64');
+    navigation.removeClass('right-0');
+    overlay.addClass('invisible opacity-0');
+})
+overlay.click(() => {
+    navigation.addClass('-right-64');
+    navigation.removeClass('right-0');
+    overlay.addClass('invisible opacity-0');
+})
+mobileMenuLink.click((e) => {
+    let thisEl = $(e.currentTarget);
+    if (thisEl.hasClass("mobile-menu__link--open")){
+        thisEl.removeClass("mobile-menu__link--open")
+    } else {
+        $(".mobile-menu__link").removeClass("mobile-menu__link--open");
+        thisEl.addClass("mobile-menu__link--open")
+    }
+})
+// App Overlay
+appOverlay.click(() => {
+    let name = appOverlayData.name;
+    if (name === "user-profile") {
+        closeUserProfile();
+        closeAppOverlay();
+    }
+    if (name === "header-search") {
+        closeHeaderSearch();
+        closeAppOverlay();
+        searchboxDropdown.addClass('hide').removeClass('show');
+        $("#searchbox").removeClass("z-50");
+    }
+    if (name == "sort-bottom-sheet"){
+        closeSortBottomSheet();
+        closeAppOverlay();
+    }
+})
+// User Profile Dropdown
+userProfile.click(() => {
+    if (appOverlayData.status) {
+        closeUserProfile();
+        closeAppOverlay();
+        return true;
+    }
+    openUserProfile();
+    openAppOverlay("user-profile");
+})
+// Header SearchBox
+$(".searchbox").click(() => {
+    if (appOverlayData.status) {
+        closeHeaderSearch();
+        closeAppOverlay();
+        return true;
+    }
+    openHeaderSearch();
+    openAppOverlay("header-search");
+})
+// Switch Theme Btn
+switchTheme.click((e) => {
+    if (localStorage.theme === 'dark') {
+        $("html").removeClass('dark');
+        localStorage.theme = 'light';
+    } else {
+        $("html").addClass('dark');
+        localStorage.theme = 'dark';
+    }
+})
+
+
+// [+] JQUERY PERFORMANCE PROBLEM FIX
+jQuery.event.special.touchstart = {
+    setup: function (_, ns, handle) {
+        this.addEventListener("touchstart", handle, {passive: !ns.includes("noPreventDefault")});
+    }
+};
+jQuery.event.special.touchmove = {
+    setup: function (_, ns, handle) {
+        this.addEventListener("touchmove", handle, {passive: !ns.includes("noPreventDefault")});
+    }
+};
+jQuery.event.special.wheel = {
+    setup: function (_, ns, handle) {
+        this.addEventListener("wheel", handle, {passive: true});
+    }
+};
+jQuery.event.special.mousewheel = {
+    setup: function (_, ns, handle) {
+        this.addEventListener("mousewheel", handle, {passive: true});
+    }
+};

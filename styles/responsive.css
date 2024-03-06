@@ -1,0 +1,37 @@
+@media only screen and (max-width: 1500px) {
+    .nav{
+        width: 98%;
+    }
+    .menu__item{
+        margin-right: 2rem;
+    }
+}
+@media only screen and (max-width: 1320px) {
+    .nav__wrapper-left{
+        margin-right: -2rem;
+    }
+    .menu{
+        font-size: 1.6rem;
+    }
+    
+    .search-nav{
+        width: 6rem;
+        height: 6rem;
+        padding: 0;
+        justify-content: center;
+    }
+    .search-nav__input{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1080px) {
+  .nav{
+    display: none;
+  }
+  .wrapper__nav-mobile{
+    display: block;
+  }
+  .sign-btns{
+    display: flex;
+  }
+}
