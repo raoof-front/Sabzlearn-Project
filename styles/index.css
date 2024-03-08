@@ -64,12 +64,15 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.7rem;
+    color: var(--white-color);
 
 }
 
 .menu__item:hover .wrapper-menu__dropdown {
     opacity: 1;
     visibility: visible;
+    z-index: 99;
+    color: var(--white-color);
 }
 
 .nav-down__icon {
@@ -100,6 +103,9 @@ body {
     margin: 1rem 0;
 }
 
+.menu__dropdown-item__link{
+    color: var(--white-color);
+}
 
 /* Finish Dropdown Styles */
 
@@ -280,7 +286,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
-li a {
+.menu-mobile__list li a {
     color: rgb(119, 124, 148);
 }
 .menu__item-mobile--active .menu__link-mobile{
