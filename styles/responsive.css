@@ -34,4 +34,16 @@
   .sign-btns{
     display: flex;
   }
+  .sign-btn__mobile{
+    display: none;
+  }
+}
+
+@media  only screen and (max-width: 700px) {
+  .sign-btns{
+    display: none;
+  }
+  .sign-btn__mobile{
+    display: block;
+  }
 }

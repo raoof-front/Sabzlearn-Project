@@ -2,3 +2,8 @@
     font-family: IRANSans;
     src: url(../fonts/IRANSans/IRANSans.ttf);
 }
+
+@font-face {
+    font-family: Lalezar;
+    src: url(../fonts/Lalezar-Font/Lalezar-Regular.ttf);
+}

@@ -103,7 +103,7 @@ body {
     margin: 1rem 0;
 }
 
-.menu__dropdown-item__link{
+.menu__dropdown-item__link {
     color: var(--white-color);
 }
 
@@ -195,10 +195,20 @@ body {
 
 /* Start Navbar Mobile */
 
-.wrapper__nav-mobile{
-    display: none;
-}
+.wrapper__nav-mobile {
 
+    display: none;
+    position: relative;
+}
+.wrapper__nav-mobile::after{
+    content: "";
+    position: absolute;
+    height: 0.1rem;
+    background-color: rgb(50, 51, 77);
+    bottom: -3rem;
+    right: -5rem;
+    left: -5rem;
+}
 .wrapper-menu__mobile {
     position: absolute;
     top: 0;
@@ -262,42 +272,49 @@ body {
     border-radius: 1.5rem;
 }
 
-.search-menu__mobile-input{
+.search-menu__mobile-input {
     border: none;
     background-color: transparent;
     height: 100%;
     width: 14rem;
 }
-.search-menu__mobile-input::placeholder{
+
+.search-menu__mobile-input::placeholder {
     font-size: 1.5rem;
     font-family: IranSans;
 }
 
-.search-menu__mobile-icon{
+.search-menu__mobile-icon {
     width: 2.5rem;
     height: 2.5rem;
     fill: rgb(119, 124, 148);
 }
 
-.menu__item-mobile{
+.menu__item-mobile {
     width: 100%;
 }
-.menu__link-mobile{
+
+.menu__link-mobile {
     display: flex;
     justify-content: space-between;
 }
+
 .menu-mobile__list li a {
     color: rgb(119, 124, 148);
 }
-.menu__item-mobile--active .menu__link-mobile{
+
+.menu__item-mobile--active .menu__link-mobile {
     color: var(--white-color);
 }
-.menu__dropdown-mobile{
+
+.menu__dropdown-mobile {
     display: none;
 }
-.menu__item-mobile--active .menu__dropdown-mobile{
+
+.menu__item-mobile--active .menu__dropdown-mobile {
     display: block;
 }
+
 /* Finish Navbar Mobile */
 
 
@@ -305,14 +322,14 @@ body {
 
 /* Start Nav Mobile */
 
-.nav-mobile{
+.nav-mobile {
     display: flex;
     justify-content: space-between;
     margin: 3rem 1rem;
     align-items: center;
 }
 
-.wrapper__burger-menu{
+.wrapper__burger-menu {
     width: 4rem;
     height: 4rem;
     display: flex;
@@ -321,7 +338,7 @@ body {
     cursor: pointer;
 }
 
-.burger-menu{
+.burger-menu {
     width: 3rem;
     height: 0.2rem;
     display: inline-block;
@@ -329,7 +346,8 @@ body {
     position: relative;
 }
 
-.burger-menu::after, .burger-menu::before{
+.burger-menu::after,
+.burger-menu::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -338,26 +356,113 @@ body {
     border-radius: 10rem;
 }
 
-.burger-menu::after{
+.burger-menu::after {
     bottom: 1rem;
 }
 
-.burger-menu::before{
+.burger-menu::before {
     bottom: -1rem;
 }
 
-.wrapper__logo{
+.wrapper__logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.wrapper__logo-link{
+
+.wrapper__logo-link {
     display: inline-block;
     width: 10rem;
     height: 7rem;
 }
-.logo__img-mobile{
+
+.logo__img-mobile {
     width: 100%;
     height: 100%;
 }
+
+.sign-btn__mobile {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    
+}
+
+.sign-btn__mobile-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: rgb(50, 51, 77);
+}
+.sign-btn__mobile-icon {
+    color: rgb(148 163 184);
+}
 /* Finish Nav Mobile */
+
+/* Start Main Header Styles */
+
+.main__header{
+    display: flex;
+    justify-content: space-between;
+    width: 126rem;
+    height: 58rem;
+    margin: 0 auto;
+    color: var(--white-color);
+    margin-top: 12rem;
+}
+.main__header-right{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.main__header-title{
+    font-family: Lalezar;
+    font-size: 6rem;
+}
+
+.main__header-text{
+    font-size: 2.5rem;
+    margin-top: 2rem;
+}
+
+.main__header-links{
+    display: flex;
+    margin-top: 3rem;
+}
+.main__header-link-start{
+    width: 18rem;
+    height: 5.5rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(37 99 235);
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+.main__header-link-free-course{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main__header-wrapper-icon{
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: rgb(34 197 94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+.main__header-icon{
+    font-size: 2rem;
+}
+.main__header-link-free-course-text{
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: rgb(119, 124, 148);
+}
+/* Finish Main Header Styles */
