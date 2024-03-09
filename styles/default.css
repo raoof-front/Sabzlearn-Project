@@ -35,11 +35,8 @@ i {
 }
 
 .container {
-    width: 90%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    width: 126rem;
+    margin: 0 auto;
 }
 
 
