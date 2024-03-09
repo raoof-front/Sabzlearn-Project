@@ -45,7 +45,7 @@
   .nav {
     display: none;
   }
-
+  
   .wrapper__nav-mobile {
     display: block;
   }
@@ -145,6 +145,19 @@
   }
   .main__header-link-start{
     margin-bottom: 1rem;
+    font-size: 1.6rem;
+    width: 15rem;
+    height: 4.5rem;
+  }
+  .main__header-wrapper-icon{
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .main__header-link-free-course-text {
+  font-size: 1.6rem;
+  }
+  .courses-header{
+    flex-wrap: wrap;
   }
   .courses-header__link{
     width: 16rem;
@@ -155,9 +168,9 @@
   }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 370px) {
   .container{
-    width: 28rem;
+    width: 27rem;
   }
   .main__header-image{
     margin-top: 6rem;

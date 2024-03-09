@@ -3,13 +3,15 @@
 
 body {
     background-color: var(--bg-color-dark);
-    overflow-x: hidden;
+    width: 100%;
     color: var(--white-color);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Start Header Styles */
 .header{
-    position: relative;
+    /* position: relative; */
 }
 .nav {
     display: flex;
@@ -205,7 +207,7 @@ body {
     display: none;
 }
 
-.wrapper__nav-mobile::after {
+/* .wrapper__nav-mobile::after {
     content: "";
     position: absolute;
     height: 0.1rem;
@@ -213,7 +215,7 @@ body {
     bottom: -3rem;
     right: -5rem;
     left: -5rem;
-}
+} */
 
 .wrapper-menu__mobile {
     position: fixed;
@@ -222,6 +224,7 @@ body {
     right: -40rem;
     width: 27rem;
     background-color: rgb(50, 51, 77);
+    transition: all 400ms ease;
     z-index: 99;
 }
 
@@ -565,7 +568,7 @@ body {
     background-color: rgb(40 41 61);
     border-radius: 2rem;
     margin-bottom: 1rem;
-    
+    overflow: hidden;
 }
 
 .course-box>a {
@@ -605,6 +608,8 @@ body {
 .detail-course {
     font-size: 1.4rem;
     color: rgb(119, 124, 148);
+    height: 4.5rem;
+    overflow: hidden;
 }
 
 .course-box__rating-teacher {

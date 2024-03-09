@@ -16,7 +16,7 @@ menuItemsMObile.forEach(item => {
 })
 
 burgerMenu.addEventListener('click', () => {
-    wrapperMenuMobile.style.right = "-5rem"
+    wrapperMenuMobile.style.right = 0
     burgerMenu.style.opacity = 0
     burgerMenu.style.visibility = 'hidden'
 })
