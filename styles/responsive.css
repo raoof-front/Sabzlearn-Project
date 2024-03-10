@@ -35,6 +35,9 @@
     width: 100rem;
     height: 50rem;
   }
+  .roadmaps-box__link{
+    width: 32rem;
+  }
   
 }
 
@@ -74,11 +77,16 @@
   .main__header-text {
     text-align: center;
   }
-  
+  .roadmaps-box__link{
+    width: 36rem;
+  }
 }
 @media only screen and (max-width: 800px) {
   .container{
     width: 62rem;
+  }
+  .roadmaps-box__link{
+    width: 30rem;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -100,16 +108,18 @@
   .courses-content{
     justify-content: center;
   }
-  .courses-header__title{
+  .section-header__title{
   font-size: 2rem;
   }
-  .courses-header__text{
+  .section-header__text{
    font-size: 1.4rem;
    }
   .course-box{
-    max-width: 35rem;
+    max-width: 100%;
   }
-  
+  .roadmaps-box__link{
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 490px) {
@@ -156,15 +166,16 @@
   .main__header-link-free-course-text {
   font-size: 1.6rem;
   }
-  .courses-header{
-    flex-wrap: wrap;
-  }
-  .courses-header__link{
+  
+  .section-header__link{
     width: 16rem;
   font-size: 1.4rem;
   }
-  .courses-header__icon{
+  .section-header__icon{
     margin-right: 0.5rem;
+  }
+  .roadmaps-box__link{
+    width: 100%;
   }
 }
 
@@ -180,5 +191,12 @@
   font-size: 3.5rem;
   }
 
-  
+  .section-header{
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+  .section-header__link{
+  margin-right: 70%;
+    
+  }
 }

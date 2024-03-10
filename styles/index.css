@@ -10,9 +10,7 @@ body {
 }
 
 /* Start Header Styles */
-.header{
-    /* position: relative; */
-}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -220,7 +218,7 @@ body {
 .wrapper-menu__mobile {
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: -5rem;
     right: -40rem;
     width: 27rem;
     background-color: rgb(50, 51, 77);
@@ -497,24 +495,21 @@ body {
 
 /* Start The Last Courses */
 
-.courses-header {
+.section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10rem;
+    margin: 10rem 0 4rem 0;
 }
 
-.courses-header__right {
-    /* width: 70%; */
 
-}
 
-.courses-header__title-wrapper {
+.section-header__title-wrapper {
     display: flex;
     align-items: center;
 }
 
-.courses-header__title-before {
+.section-header__title-before {
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
@@ -522,17 +517,19 @@ body {
     border-radius: 0.3rem;
 }
 
-.courses-header__title {
+.section-header__title {
     font-size: 3rem;
     font-weight: bold;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
-.courses-header__text {
+.section-header__text {
     font-size: 2rem;
     color: rgb(119, 124, 148);
     overflow: hidden;
 }
+
+
 
 .courses-header__link {
     display: flex;
@@ -541,6 +538,7 @@ body {
     padding: 1rem;
     transition: all 400ms ease;
     border-radius: 1rem;
+    font-size: 1.8rem;
 }
 
 .courses-header__link:hover {
@@ -557,7 +555,6 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    height: 120rem;
     gap: 2rem;
 }
 
@@ -566,18 +563,12 @@ body {
     width: 30rem;
     height: 38rem;
     background-color: rgb(40 41 61);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     margin-bottom: 1rem;
     overflow: hidden;
+    border: 1px solid rgb(53, 55, 78);
 }
 
-.course-box>a {
-    display: block;
-    width: 99%;
-    margin: 0 auto;
-    margin-top: 0.1rem;
-    margin-right: 0.25rem;
-}
 
 .course-box__img {
     width: 100%;
@@ -673,21 +664,78 @@ body {
     justify-content: space-between;
 }
 
-.course-box__user {}
-
-.course-box__users {}
-
-.course-box__users-text {}
-
 .course-box__price {
     color: rgb(34 197 94);
     font-size: 2rem;
 }
 
-.course-box__footer {}
-
-.course-box__footer-link {}
-
-.course-box__footer-icon {}
 
 /* Finish The Last Courses */
+
+/* Start RoadMap Stayles */
+
+.roadmaps{
+    width: 100%;
+    height: 28rem;
+}
+
+.roadmaps .section-header{
+    display: block;
+}
+.section-header__title-before{
+    background-color: rgb(217 70 239);
+}
+
+.roadmaps-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+}
+.roadmaps-content>a:nth-child(1){
+    background: linear-gradient(to right, rgb(254 178 54), rgb(242 41 90));
+}
+
+.roadmaps-content>a:nth-child(2){
+    background: linear-gradient(to right, rgb(48 197 227) ,rgb(39 229 94));
+}
+.roadmaps-content>a:nth-child(3){
+    background: linear-gradient(to right, rgb(154 55 247) , rgb(45 157 255));
+}
+.roadmaps-content>a:nth-child(4){
+    background: linear-gradient(to right, rgb(253 52 113), rgb(137 1 117));
+}
+
+.roadmaps-box__link{
+    border-radius: 1.5rem;
+    width: 30rem;
+    height: 16rem;
+}
+
+.roadmaps-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+}
+.roadmaps-box__number{
+    position: absolute;
+    padding-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgb(28 ,28 ,40);
+    color: var(--white-color);
+    top: 1rem;
+    left: 1rem;
+    
+}
+/* Finish RoadMap Stayles */
