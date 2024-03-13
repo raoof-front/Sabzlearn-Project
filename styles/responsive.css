@@ -38,7 +38,9 @@
   .roadmaps-box__link{
     width: 32rem;
   }
-  
+  .about-us__box{
+    width: 48%;
+  }
 }
 
 @media only screen and (max-width: 1080px) {
@@ -88,6 +90,9 @@
   .roadmaps-box__link{
     width: 30rem;
   }
+  .about-us__box{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 700px) {
   .container{
@@ -120,6 +125,7 @@
   .roadmaps-box__link{
     width: 100%;
   }
+  
 }
 
 @media only screen and (max-width: 490px) {
@@ -177,6 +183,20 @@
   .roadmaps-box__link{
     width: 100%;
   }
+  .circle{
+    min-width: 6rem;
+    min-height: 6rem;
+    max-width: 6rem;
+    max-height: 6rem;
+  }
+  .about-us__box-title{
+    font-size: 1.6rem;
+    font-weight: normal;
+
+  }
+  .about-us__box-text-description{
+    font-size: 1.4rem;
+  }
 }
 
 @media only screen and (max-width: 370px) {
@@ -198,5 +218,9 @@
   .section-header__link{
   margin-right: 70%;
     
+  }
+  .about-us__box{
+    flex-direction: column;
+    height: 20rem;
   }
 }
