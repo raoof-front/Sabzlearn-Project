@@ -3,11 +3,14 @@
 
 body {
     background-color: var(--bg-color-dark);
+   
     width: 100%;
     color: var(--white-color);
     overflow-x: hidden;
     overflow-y: auto;
+   
 }
+
 
 /* Start Header Styles */
 
@@ -798,3 +801,19 @@ body {
     color: rgb(119, 124, 148);
 }
 /* Finish About-us Styles */
+
+/* Start Newest Courses */
+
+.newest-courses .section-header__title-before{
+    background-color: rgb(34,197,94);
+}
+
+.swiper-slide{
+    width: 29rem;
+}
+.swiper-slide .course-box{
+    width: 29rem;
+}
+
+
+/* Finish Newest Courses */
